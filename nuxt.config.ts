@@ -18,8 +18,13 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   content: {
-    // Studio alpha configuration
-    // The new module handles preview automatically
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-dark'
+        }
+      }
+    }
   },
 
   compatibilityDate: '2024-11-01',
