@@ -3,7 +3,5 @@
 </script>
 
 <template>
-  <UPage>
-    
-  </UPage>
+  <UPage />
 </template>
