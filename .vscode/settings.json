@@ -1,4 +1,7 @@
 {
+  // Suppress Tailwind v4 unknown at-rule warnings (@source, @theme, etc.)
+  "css.lint.unknownAtRules": "ignore",
+
   // Use ESLint as the default formatter for Vue, JS, and TS files
   "[vue]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
