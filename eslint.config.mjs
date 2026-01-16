@@ -33,11 +33,60 @@ export default withNuxt(antfu({
     "node/prefer-global/process": ["off"],
     "node/no-process-env": ["error"],
     "perfectionist/sort-imports": "error",
+    // Disable global filename-case, use directory-specific rules below
+    "unicorn/filename-case": "off",
+  },
+},
+// Components: PascalCase
+{
+  files: ["**/components/**/*.vue", "**/components/**/*.ts"],
+  rules: {
+    "unicorn/filename-case": ["error", {
+      cases: { pascalCase: true },
+    }],
+  },
+},
+// Composables: camelCase (useXxx.ts)
+{
+  files: ["**/composables/**/*.ts"],
+  rules: {
+    "unicorn/filename-case": ["error", {
+      cases: { camelCase: true },
+    }],
+  },
+},
+// Pages, layouts, middleware, plugins, server: kebab-case
+{
+  files: [
+    "**/pages/**/*.vue",
+    "**/layouts/**/*.vue",
+    "**/middleware/**/*.ts",
+    "**/plugins/**/*.ts",
+    "**/server/**/*.ts",
+  ],
+  rules: {
+    "unicorn/filename-case": ["error", {
+      cases: { kebabCase: true },
+    }],
+  },
+},
+// Other files: allow both PascalCase and kebab-case
+{
+  files: ["**/*.vue", "**/*.ts", "**/*.mjs"],
+  ignores: [
+    "**/components/**",
+    "**/composables/**",
+    "**/pages/**",
+    "**/layouts/**",
+    "**/middleware/**",
+    "**/plugins/**",
+    "**/server/**",
+  ],
+  rules: {
     "unicorn/filename-case": ["error", {
       cases: {
         pascalCase: true,
         kebabCase: true,
-        camelCase: true,
       },
       ignore: [
         "^\\.",
