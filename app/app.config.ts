@@ -2,7 +2,8 @@ export default defineAppConfig({
   meta: {
     id: "soft_spoken_studio",
     name: "Soft Spoken Studio",
-    description: "Copywriting and video production agency specializing in compelling brand storytelling.",
+    description:
+      "Copywriting and video production agency specializing in compelling brand storytelling.",
     author: {
       name: "Thomas Hibbert",
       url: "https://softspokenstudio.com",
@@ -67,7 +68,8 @@ export default defineAppConfig({
     pageHeader: {
       slots: {
         root: "relative border-none pt-12 pb-14 sm:pt-12 sm:pb-24 lg:pt-18 lg:pb-20 px-4",
-        title: "mx-0 text-left max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl",
+        title:
+          "mx-0 text-left max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl",
         description: "mx-0 text-left text-sm text-muted max-w-2xl",
         links: "justify-start",
       },
@@ -75,8 +77,10 @@ export default defineAppConfig({
     pageHero: {
       slots: {
         container: "py-18 sm:py-24 lg:py-32",
-        title: "mx-auto max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl text-default",
-        description: "mt-2 text-md mx-auto max-w-2xl text-pretty sm:text-md text-muted",
+        title:
+          "mx-auto max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl text-default",
+        description:
+          "mt-2 text-md mx-auto max-w-2xl text-pretty sm:text-md text-muted",
       },
     },
     pageSection: {
@@ -187,8 +191,10 @@ export default defineAppConfig({
     },
     changelogVersion: {
       slots: {
-        container: "flex flex-col max-w-none ps-4 lg:ps-0 lg:ms-48 pe-4 sm:pe-4 lg:pe-10 pb-18",
-        indicator: "absolute start-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0",
+        container:
+          "flex flex-col max-w-none ps-4 lg:ps-0 lg:ms-48 pe-4 sm:pe-4 lg:pe-10 pb-18",
+        indicator:
+          "absolute start-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0",
       },
     },
     pageColumns: {
@@ -196,8 +202,7 @@ export default defineAppConfig({
     },
     contentSearch: {
       slots: {
-        root: "bg-white dark:bg-neutral-900",
-        itemLeadingIcon: "size-4",
+        modal: "bg-white dark:bg-neutral-900",
       },
     },
   },
