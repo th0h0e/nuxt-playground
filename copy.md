@@ -1,5 +1,7 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
+
+
 const createBaseSchema = () => z.object({
   title: z.string(),
   description: z.string()
