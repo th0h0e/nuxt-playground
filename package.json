@@ -43,6 +43,6 @@
     "unimport": "4.1.1"
   },
   "lint-staged": {
-    "*.{js,ts,mjs,vue,json,yaml,yml,md}": "eslint --fix"
+    "*.{js,ts,mjs,vue,json,yaml,yml}": "eslint --fix"
   }
 }
