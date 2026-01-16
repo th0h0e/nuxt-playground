@@ -1,22 +1,21 @@
 <script setup lang="ts">
-const route = useRoute()
+const route = useRoute();
 
 const { data: page } = await useAsyncData(`projects-${route.path}`, () =>
-  queryCollection('projects').path(route.path).first()
-)
-if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+  queryCollection("projects").path(route.path).first());
+if (!page.value)
+  throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
 const { data: surround } = await useAsyncData(`projects-${route.path}-surround`, () =>
-  queryCollectionItemSurroundings('projects', route.path, {
-    fields: ['description']
-  })
-)
+  queryCollectionItemSurroundings("projects", route.path, {
+    fields: ["description"],
+  }));
 
 useSeoMeta({
   title: page.value?.title,
   ogTitle: page.value?.title,
   description: page.value?.description,
-  ogDescription: page.value?.description
-})
+  ogDescription: page.value?.description,
+});
 </script>
 
 <template>

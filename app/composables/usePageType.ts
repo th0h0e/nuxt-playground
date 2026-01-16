@@ -1,13 +1,13 @@
-export const usePageType = () => {
-  const route = useRoute()
+export function usePageType() {
+  const route = useRoute();
 
-  const isWritingPage = computed(() => route.path.startsWith('/writing/'))
+  const isWritingPage = computed(() => route.path.startsWith("/writing/"));
   const isWritingArticle = computed(() =>
-    isWritingPage.value && route.path !== '/writing/'
-  )
+    isWritingPage.value && route.path !== "/writing/",
+  );
 
   return {
     isWritingPage,
-    isWritingArticle
-  }
+    isWritingArticle,
+  };
 }

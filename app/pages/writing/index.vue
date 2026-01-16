@@ -1,31 +1,30 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('writing-page', () => {
-  return queryCollection('collectionPages').path('/writing').first()
-})
+const { data: page } = await useAsyncData("writing-page", () => {
+  return queryCollection("collectionPages").path("/writing").first();
+});
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Page not found',
-    fatal: true
-  })
+    statusMessage: "Page not found",
+    fatal: true,
+  });
 }
 
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
   ogTitle: page.value?.seo?.title || page.value?.title,
   description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description
-})
+  ogDescription: page.value?.seo?.description || page.value?.description,
+});
 
-const { data: posts } = await useAsyncData('writings', () =>
-  queryCollection('writing').order('date', 'DESC').all()
-)
+const { data: posts } = await useAsyncData("writings", () =>
+  queryCollection("writing").order("date", "DESC").all());
 if (!posts.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'posts not found',
-    fatal: true
-  })
+    statusMessage: "posts not found",
+    fatal: true,
+  });
 }
 </script>
 
@@ -43,7 +42,7 @@ if (!posts.value) {
     </div>
     <UPageSection
       :ui="{
-        container: '!pt-0'
+        container: '!pt-0',
       }"
     >
       <BlogPostList :posts="posts" />

@@ -1,35 +1,35 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
-const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
+const colorMode = useColorMode();
+const color = computed(() => colorMode.value === "dark" ? "#020618" : "white");
 
 useHead({
   meta: [
-    { key: 'theme-color', name: 'theme-color', content: color }
+    { key: "theme-color", name: "theme-color", content: color },
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
-  ]
-})
+    { rel: "icon", href: "/favicon.ico" },
+  ],
+});
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
-  useAsyncData('navigation', () => {
+  useAsyncData("navigation", () => {
     return Promise.all([
-      queryCollectionNavigation('writing'),
-      queryCollectionNavigation('projects')
-    ])
+      queryCollectionNavigation("writing"),
+      queryCollectionNavigation("projects"),
+    ]);
   }, {
-    transform: data => data.flat()
+    transform: data => data.flat(),
   }),
-  useLazyAsyncData('search', () => {
+  useLazyAsyncData("search", () => {
     return Promise.all([
-      queryCollectionSearchSections('writing'),
-      queryCollectionSearchSections('projects')
-    ])
+      queryCollectionSearchSections("writing"),
+      queryCollectionSearchSections("projects"),
+    ]);
   }, {
     server: false,
-    transform: data => data.flat().filter(section => section.level >= 1 && section.level <= 6)
-  })
-])
+    transform: data => data.flat().filter(section => section.level >= 1 && section.level <= 6),
+  }),
+]);
 </script>
 
 <template>

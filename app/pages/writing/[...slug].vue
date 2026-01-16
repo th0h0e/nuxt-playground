@@ -1,35 +1,36 @@
 <script lang="ts" setup>
-const route = useRoute()
-const authorEl = ref<HTMLElement | null>()
+const route = useRoute();
+const authorEl = ref<HTMLElement | null>();
 
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  })
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }
 
-const { data } = await useAsyncData(route.path, () => queryCollection('writing').path(route.path).first())
-if (!data.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+const { data } = await useAsyncData(route.path, () => queryCollection("writing").path(route.path).first());
+if (!data.value)
+  throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings('writing', route.path, {
-    fields: ['description']
-  })
-})
+  return queryCollectionItemSurroundings("writing", route.path, {
+    fields: ["description"],
+  });
+});
 
 onMounted(() => {
-  const contentEl = document.getElementById('content')
-  authorEl.value = contentEl?.querySelector('#author-about')
-})
+  const contentEl = document.getElementById("content");
+  authorEl.value = contentEl?.querySelector("#author-about");
+});
 
 useSeoMeta({
   title: data.value?.title,
   ogTitle: data.value?.title,
   description: data.value?.description,
-  ogDescription: data.value?.description
-})
+  ogDescription: data.value?.description,
+});
 </script>
 
 <template>

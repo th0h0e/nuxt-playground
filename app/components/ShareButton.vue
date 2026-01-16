@@ -1,24 +1,24 @@
 <script setup lang="ts">
-const route = useRoute()
-const clipboard = useClipboard()
-const toast = useToast()
+const route = useRoute();
+const clipboard = useClipboard();
+const toast = useToast();
 
 async function copyLink() {
-  await clipboard.copy(window.location.href)
-  toast.add({ title: 'Copied to clipboard', icon: 'i-feather-check-circle', color: 'success' })
+  await clipboard.copy(window.location.href);
+  toast.add({ title: "Copied to clipboard", icon: "i-feather-check-circle", color: "success" });
 }
 
 async function share() {
-  await navigator.share({ url: route.fullPath })
+  await navigator.share({ url: route.fullPath });
 }
 
 const shareMenuItems = [
   {
-    label: 'Copy URL',
-    icon: 'i-feather-link',
-    onSelect: copyLink
-  }
-]
+    label: "Copy URL",
+    icon: "i-feather-link",
+    onSelect: copyLink,
+  },
+];
 </script>
 
 <template>

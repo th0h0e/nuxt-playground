@@ -1,95 +1,95 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from "@nuxt/ui";
 
 const items = ref<NavigationMenuItem[][]>([
   [
     {
-      label: 'Soft Spoken Studio',
-      type: 'label'
+      label: "Soft Spoken Studio",
+      type: "label",
     },
     {
-      label: 'Home',
-      to: '/'
+      label: "Home",
+      to: "/",
     },
     {
-      label: 'Projects',
-      to: '/projects'
+      label: "Projects",
+      to: "/projects",
     },
     {
-      label: 'Writing',
-      to: '/writing'
+      label: "Writing",
+      to: "/writing",
     },
     {
-      label: 'About',
-      to: '/about'
+      label: "About",
+      to: "/about",
     },
     {
-      label: 'Gallery',
-      to: '/gallery'
-    }
-  ]
-])
+      label: "Gallery",
+      to: "/gallery",
+    },
+  ],
+]);
 
 // Color mode toggle for mobile navigation
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 
-const switchTheme = () => {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+function switchTheme() {
+  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
 }
 
-const startViewTransition = (event: Event) => {
+function startViewTransition(event: Event) {
   if (!document.startViewTransition) {
-    switchTheme()
-    return
+    switchTheme();
+    return;
   }
 
   // Try to get coordinates from event, fallback to center of screen
-  const mouseEvent = event as MouseEvent
-  const x = mouseEvent.clientX || window.innerWidth / 2
-  const y = mouseEvent.clientY || window.innerHeight / 2
+  const mouseEvent = event as MouseEvent;
+  const x = mouseEvent.clientX || window.innerWidth / 2;
+  const y = mouseEvent.clientY || window.innerHeight / 2;
 
   const endRadius = Math.hypot(
     Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y)
-  )
+    Math.max(y, window.innerHeight - y),
+  );
 
   const transition = document.startViewTransition(() => {
-    switchTheme()
-  })
+    switchTheme();
+  });
 
   transition.ready.then(() => {
     document.documentElement.animate(
       {
         clipPath: [
           `circle(0px at ${x}px ${y}px)`,
-          `circle(${endRadius}px at ${x}px ${y}px)`
-        ]
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ],
       },
       {
         duration: 600,
-        easing: 'cubic-bezier(.76,.32,.29,.99)',
-        pseudoElement: '::view-transition-new(root)'
-      }
-    )
-  })
+        easing: "cubic-bezier(.76,.32,.29,.99)",
+        pseudoElement: "::view-transition-new(root)",
+      },
+    );
+  });
 }
 
 // Mobile items with color mode toggle appended to last group (no separator)
 // Filter out the "Soft Spoken Studio" label since it's shown in the collapsible trigger
 const mobileItems = computed<NavigationMenuItem[][]>(() => {
   const mobileNavItems = items.value.map(group =>
-    group.filter(item => !(item.type === 'label' && item.label === 'Soft Spoken Studio'))
-  )
-  const lastGroupIndex = mobileNavItems.length - 1
+    group.filter(item => !(item.type === "label" && item.label === "Soft Spoken Studio")),
+  );
+  const lastGroupIndex = mobileNavItems.length - 1;
   mobileNavItems[lastGroupIndex] = [
     ...(mobileNavItems[lastGroupIndex] ?? []),
     {
-      label: colorMode.value === 'dark' ? 'Light Mode' : 'Dark Mode',
-      onSelect: startViewTransition
-    }
-  ]
-  return mobileNavItems
-})
+      label: colorMode.value === "dark" ? "Light Mode" : "Dark Mode",
+      onSelect: startViewTransition,
+    },
+  ];
+  return mobileNavItems;
+});
 </script>
 
 <template>
@@ -107,7 +107,7 @@ const mobileItems = computed<NavigationMenuItem[][]>(() => {
     :ui="{
       root: 'flex flex-col h-full',
       body: 'flex-1',
-      footer: 'bg-elevated/30 py-5!'
+      footer: 'bg-elevated/30 py-5!',
     }"
   >
     <template #header>

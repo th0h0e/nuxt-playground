@@ -1,12 +1,12 @@
 <script setup lang="ts">
-interface Props {
-  to: string
-  title: string
-  description: string
-  gallery?: string[]
-}
+type Props = {
+  to: string;
+  title: string;
+  description: string;
+  gallery?: string[];
+};
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 
 <template>
@@ -19,7 +19,7 @@ defineProps<Props>()
         :ui="{
           root: 'cursor-pointer',
           header: '!p-0',
-          body: 'bg-elevated/30 hover:bg-elevated/50 transition-colors'
+          body: 'bg-elevated/30 hover:bg-elevated/50 transition-colors',
         }"
       >
         <template #header>

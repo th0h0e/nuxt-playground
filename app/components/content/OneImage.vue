@@ -16,11 +16,11 @@
  */
 
 defineProps<{
-  src: string
-  alt: string
-  title?: string
-  link?: string
-}>()
+  src: string;
+  alt: string;
+  title?: string;
+  link?: string;
+}>();
 </script>
 
 <template>

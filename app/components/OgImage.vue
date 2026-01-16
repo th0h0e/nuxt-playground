@@ -1,25 +1,25 @@
 <!-- eslint-disable-next-line -->
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useSiteConfig } from '#site-config/app/composables'
+import { useSiteConfig } from "#site-config/app/composables";
+import { computed } from "vue";
 
 const props = withDefaults(defineProps<{
-  title?: string
-  description?: string
-  colorMode?: 'dark' | 'light'
-  theme?: string
+  title?: string;
+  description?: string;
+  colorMode?: "dark" | "light";
+  theme?: string;
 }>(), {
-  colorMode: 'dark',
-  theme: 'neutral'
-})
+  colorMode: "dark",
+  theme: "neutral",
+});
 
-const siteConfig = useSiteConfig()
+const siteConfig = useSiteConfig();
 const pageTitle = computed(() => {
-  return props.title || siteConfig.name || 'Soft Spoken Studio'
-})
+  return props.title || siteConfig.name || "Soft Spoken Studio";
+});
 const pageDescription = computed(() => {
-  return props.description || siteConfig.description || 'Word on These Streets'
-})
+  return props.description || siteConfig.description || "Word on These Streets";
+});
 </script>
 
 <template>
@@ -34,13 +34,13 @@ const pageDescription = computed(() => {
       position: 'relative',
       fontFamily: 'Times New Roman, serif',
       backgroundColor: props.colorMode === 'light' ? '#fbfbfb' : '#121212',
-      color: props.colorMode === 'light' ? '#000000' : '#ffffff'
+      color: props.colorMode === 'light' ? '#000000' : '#ffffff',
     }"
   >
     <!-- Header section -->
     <div
       :style="{
-        padding: '80px 80px 0 80px'
+        padding: '80px 80px 0 80px',
       }"
     >
       <!-- Badge/headline -->
@@ -50,7 +50,7 @@ const pageDescription = computed(() => {
           letterSpacing: '0.1em',
           textTransform: 'uppercase',
           marginBottom: '48px',
-          color: props.colorMode === 'light' ? '#666666' : '#888888'
+          color: props.colorMode === 'light' ? '#666666' : '#888888',
         }"
       >
         Copywriting & Videoproduction
@@ -64,7 +64,7 @@ const pageDescription = computed(() => {
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
       }"
     >
       <h1
@@ -75,7 +75,7 @@ const pageDescription = computed(() => {
           letterSpacing: '-0.02em',
           marginBottom: '32px',
           marginTop: 0,
-          maxWidth: '90%'
+          maxWidth: '90%',
         }"
       >
         {{ pageTitle }}
@@ -87,7 +87,7 @@ const pageDescription = computed(() => {
           maxWidth: '90%',
           margin: 0,
           fontWeight: 300,
-          color: props.colorMode === 'light' ? '#666666' : '#aaaaaa'
+          color: props.colorMode === 'light' ? '#666666' : '#aaaaaa',
         }"
       >
         {{ pageDescription }}
@@ -97,14 +97,14 @@ const pageDescription = computed(() => {
     <!-- Footer with branding -->
     <div
       :style="{
-        padding: '0 80px 80px 80px'
+        padding: '0 80px 80px 80px',
       }"
     >
       <div
         :style="{
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px'
+          gap: '16px',
         }"
       >
         <!-- Divider line -->
@@ -113,7 +113,7 @@ const pageDescription = computed(() => {
             width: '48px',
             height: '1px',
             margin: 0,
-            backgroundColor: props.colorMode === 'light' ? '#cccccc' : '#444444'
+            backgroundColor: props.colorMode === 'light' ? '#cccccc' : '#444444',
           }"
         />
         <p
@@ -121,7 +121,7 @@ const pageDescription = computed(() => {
             fontSize: '12px',
             letterSpacing: '0.05em',
             margin: 0,
-            color: props.colorMode === 'light' ? '#666666' : '#888888'
+            color: props.colorMode === 'light' ? '#666666' : '#888888',
           }"
         >
           {{ siteConfig.name }}

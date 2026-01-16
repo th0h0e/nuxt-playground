@@ -1,4 +1,9 @@
 <script setup lang="ts">
+defineProps<{
+  title: string;
+  description: string;
+}>();
+
 /**
  * Hero Component - Props-Based Format
  *
@@ -8,12 +13,7 @@
  * <Hero :title="title" :description="description" />
  */
 
-const { global } = useAppConfig()
-
-defineProps<{
-  title: string
-  description: string
-}>()
+const { global } = useAppConfig();
 </script>
 
 <template>
@@ -21,7 +21,7 @@ defineProps<{
     :ui="{
       headline: 'flex items-center justify-center',
       title: 'max-w-lg mx-auto',
-      links: 'mt-4 flex-col justify-center items-center'
+      links: 'mt-4 flex-col justify-center items-center',
     }"
   >
     <template #headline>
@@ -29,16 +29,16 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
         }"
       >
         <UColorModeAvatar
@@ -55,16 +55,16 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.1
+          delay: 0.1,
         }"
       >
         {{ title }}
@@ -76,16 +76,16 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.3
+          delay: 0.3,
         }"
       >
         {{ description }}
@@ -97,16 +97,16 @@ defineProps<{
         :initial="{
           scale: 1.1,
           opacity: 0,
-          filter: 'blur(20px)'
+          filter: 'blur(20px)',
         }"
         :animate="{
           scale: 1,
           opacity: 1,
-          filter: 'blur(0px)'
+          filter: 'blur(0px)',
         }"
         :transition="{
           duration: 0.6,
-          delay: 0.5
+          delay: 0.5,
         }"
       >
         <div class="flex items-center gap-2">

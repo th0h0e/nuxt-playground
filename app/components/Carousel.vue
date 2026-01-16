@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // Accept images array as a prop
 const props = defineProps<{
-  images?: string[] // Made optional with fallback
-}>()
-const items = computed(() => props.images || [])
+  images?: string[]; // Made optional with fallback
+}>();
+const items = computed(() => props.images || []);
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const items = computed(() => props.images || [])
     :ui="{
       root: 'p-0',
       viewport: 'p-0',
-      item: 'basis-[100%] transition-opacity [&:not(.is-snapped)]:opacity-10'
+      item: 'basis-[100%] transition-opacity [&:not(.is-snapped)]:opacity-10',
     }"
   >
     <img

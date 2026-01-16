@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const route = useRoute()
-const { isWritingArticle } = usePageType()
+const route = useRoute();
+const { isWritingArticle } = usePageType();
 
 // Fetch current article's ToC when on article page
 const { data: currentArticle } = await useAsyncData(
   () => `mobile-toc-${route.path}`,
-  () => queryCollection('writing').path(route.path).first(),
-  { watch: [() => route.path] }
-)
+  () => queryCollection("writing").path(route.path).first(),
+  { watch: [() => route.path] },
+);
 
-const tocOpen = ref(false)
+const tocOpen = ref(false);
 </script>
 
 <template>
@@ -27,7 +27,7 @@ const tocOpen = ref(false)
         variant="ghost"
         trailing-icon="i-feather-plus"
         :ui="{
-          trailingIcon: 'group-data-[state=open]:rotate-135 transition-transform duration-200'
+          trailingIcon: 'group-data-[state=open]:rotate-135 transition-transform duration-200',
         }"
       />
 
@@ -43,7 +43,7 @@ const tocOpen = ref(false)
               trigger: 'hidden',
               title: 'hidden',
               trailingIcon: 'hidden',
-              content: ''
+              content: '',
             }"
           />
         </div>

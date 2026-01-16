@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { footer } = useAppConfig()
+const { footer } = useAppConfig();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const { footer } = useAppConfig()
     :ui="{
       left: 'text-muted text-xs mt-0',
       right: 'mt-0',
-      container: 'px-4 sm:px-6 !py-5 flex items-center justify-between gap-4'
+      container: 'px-4 sm:px-6 !py-5 flex items-center justify-between gap-4',
     }"
   >
     <template #left>
@@ -42,7 +42,7 @@ const { footer } = useAppConfig()
     class="hidden lg:block z-10 bg-elevated/30 border-t border-default"
     :ui="{
       left: 'text-muted text-xs',
-      container: 'px-4 sm:px-6 lg:px-8 !py-5'
+      container: 'px-4 sm:px-6 lg:px-8 !py-5',
     }"
   >
     <template #left>

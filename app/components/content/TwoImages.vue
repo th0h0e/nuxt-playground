@@ -20,13 +20,13 @@
 
 const props = defineProps<{
   images: Array<{
-    src: string
-    alt: string
-    link?: string
-  }>
-}>()
+    src: string;
+    alt: string;
+    link?: string;
+  }>;
+}>();
 
-const displayImages = computed(() => props.images)
+const displayImages = computed(() => props.images);
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch } from "vue";
 
-const router = useRouter()
-const navOpen = ref(false)
-const { isWritingArticle } = usePageType()
+const router = useRouter();
+const navOpen = ref(false);
+const { isWritingArticle } = usePageType();
 
 watch(() => router.currentRoute.value.path, () => {
-  navOpen.value = false
-})
+  navOpen.value = false;
+});
 </script>
 
 <template>
@@ -33,7 +33,7 @@ watch(() => router.currentRoute.value.path, () => {
               variant="ghost"
               trailing-icon="i-feather-chevron-down"
               :ui="{
-                trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200'
+                trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200',
               }"
             />
 
@@ -57,7 +57,7 @@ watch(() => router.currentRoute.value.path, () => {
             root: 'flex flex-col h-full divide-y-0',
             header: '!p-0',
             body: 'flex-1 p-4',
-            footer: 'bg-elevated/30 py-4 border-t border-default'
+            footer: 'bg-elevated/30 py-4 border-t border-default',
           }"
         >
           <template #header>

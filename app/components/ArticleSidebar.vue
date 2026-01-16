@@ -1,18 +1,17 @@
 <script setup lang="ts">
-const route = useRoute()
-const { isWritingArticle } = usePageType()
+const route = useRoute();
+const { isWritingArticle } = usePageType();
 
 // Fetch article previews for default sidebar
-const { data: articles } = await useAsyncData('sidebar-articles', () =>
-  queryCollection('writing').order('date', 'DESC').limit(3).all()
-)
+const { data: articles } = await useAsyncData("sidebar-articles", () =>
+  queryCollection("writing").order("date", "DESC").limit(3).all());
 
 // Fetch current article's ToC when on article page
 const { data: currentArticle } = await useAsyncData(
   () => `article-toc-${route.path}`,
-  () => queryCollection('writing').path(route.path).first(),
-  { watch: [() => route.path] }
-)
+  () => queryCollection("writing").path(route.path).first(),
+  { watch: [() => route.path] },
+);
 </script>
 
 <template>

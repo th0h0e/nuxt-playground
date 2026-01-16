@@ -14,21 +14,21 @@
 
 const props = withDefaults(
   defineProps<{
-    title?: string
+    title?: string;
   }>(),
   {
-    title: 'Project Index'
-  }
-)
+    title: "Project Index",
+  },
+);
 
 const { data: projectsList } = await useAsyncData(
-  'projects-list',
-  () => queryCollection('projects').all(),
+  "projects-list",
+  () => queryCollection("projects").all(),
   {
     transform: projects => projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
-    default: () => []
-  }
-)
+    default: () => [],
+  },
+);
 </script>
 
 <template>

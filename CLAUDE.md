@@ -1,34 +1,34 @@
 This is a Project using the Vue framwork Nuxt 4.
 
-
-
-We use Nuxt Ui for our interface and components and the Nuxt Content module to query / fetch data. 
-
+We use Nuxt Ui for our interface and components and the Nuxt Content module to query / fetch data.
 
 ### Core Concepts of Nuxt UI
 
 ## Component Architecture
 
-  Slots-Based Structure
-  - Components are composed of multiple slots (distinct HTML sections)
-  - Example: UCard has root, header, body, and footer slots
-  - Simple components may only have a base slot (like UContainer)
+Slots-Based Structure
 
-  Variants System
-  - Props like size, color, variant dynamically control component styling
-  - Each variant can affect different slots
-  - defaultVariants set the defaults when no prop is provided
-  - compoundVariants apply styles when multiple conditions are met
+- Components are composed of multiple slots (distinct HTML sections)
+- Example: UCard has root, header, body, and footer slots
+- Simple components may only have a base slot (like UContainer)
+
+Variants System
+
+- Props like size, color, variant dynamically control component styling
+- Each variant can affect different slots
+- defaultVariants set the defaults when no prop is provided
+- compoundVariants apply styles when multiple conditions are met
 
 ## Semantic Color System
 
-  Instead of using Tailwind colors, Nuxt UI uses semantic colors:
-  - primary - Main CTAs, active states, brand elements
-  - secondary - Alternative actions
-  - success, info, warning, error - Status-based colors
-  - neutral - Text, borders, backgrounds
+Instead of using Tailwind colors, Nuxt UI uses semantic colors:
 
-  These map to actual Tailwind colors (like green, blue, red) configured in app.config.ts
+- primary - Main CTAs, active states, brand elements
+- secondary - Alternative actions
+- success, info, warning, error - Status-based colors
+- neutral - Text, borders, backgrounds
+
+These map to actual Tailwind colors (like green, blue, red) configured in app.config.ts
 
 <note>
 
@@ -36,16 +36,13 @@ Information regarding Nuxt UI please use the Nuxt UI MCP to look into the docume
 
 </note>
 
-
-
 ### Core Concepts of Nuxt Content
 
-Our data is stored in .md and .yml files within the @app/content folder. 
+Our data is stored in .md and .yml files within the @app/content folder.
 
 The Nuxt Content module allows us to query and import this data in pages and components.
 
 Nuxt content requires us to build a clear stucture/ for our data in content.config.ts that we can then validate with Zod.
-
 
 The structure of the data is defined in @content.config.ts:
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
@@ -60,42 +57,35 @@ Then it defines a type. this can either be one of two options:
 type: 'page'
 type: 'data'
 
-content.config.ts also  defines the structure:
- schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        date: z.date(),
-        image: z.object({
-          src: property(z.string()).editor({ input: 'media' }),
-          alt: z.string()
+content.config.ts also defines the structure:
+schema: z.object({
+title: z.string(),
+description: z.string().optional(),
+date: z.date(),
+image: z.object({
+src: property(z.string()).editor({ input: 'media' }),
+alt: z.string()
 
-In order to use the data in .md fieles Nuxt gives us clear insructions of how to use Nuxt Content. 
-
-
-
-
-
+In order to use the data in .md fieles Nuxt gives us clear insructions of how to use Nuxt Content.
 
 ### Define a Collection
 
 ```ts [content.config.ts]
-import { defineCollection, defineContentConfig } from '@nuxt/content'
-import { z } from 'zod'
+import { defineCollection, defineContentConfig } from "@nuxt/content";
+import { z } from "zod";
 
 export default defineContentConfig({
   collections: {
     blog: defineCollection({
-      type: 'page',
-      source: 'blog/*.md',
+      type: "page",
+      source: "blog/*.md",
       schema: z.object({
         date: z.string()
       })
     })
   }
-})
+});
 ```
-
-
 
 ### Create `.md` files
 
@@ -117,6 +107,7 @@ This is Foo blog post.
 ---
 date: 2024-12-12
 ---
+
 Hello
 I am bar. Nice to meet you.
 ```
@@ -129,10 +120,10 @@ Now we can query blog posts:
 
 ```ts
 // Get the foo post
-const fooPost = await queryCollection('blog').path('/blog/foo').first()
+const fooPost = await queryCollection("blog").path("/blog/foo").first();
 
 // Find all posts
-const allPosts = await queryCollection('blog').order('date', 'DESC').all()
+const allPosts = await queryCollection("blog").order("date", "DESC").all();
 ```
 
 ### Display Markdown
@@ -141,10 +132,10 @@ To display the content of a markdown file, you can use the [`<ContentRenderer>`]
 
 ```vue [blog/[slug].vue]
 <script setup>
-const slug = useRoute().params.slug
+const slug = useRoute().params.slug;
 const { data: post } = await useAsyncData(`blog-${slug}`, () => {
-  return queryCollection('blog').path(`/blog/${slug}`).first()
-})
+  return queryCollection("blog").path(`/blog/${slug}`).first();
+});
 </script>
 
 <template>
@@ -152,7 +143,6 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
   <ContentRenderer :value="post" />
 </template>
 ```
-
 
 ## Frontmatter
 
@@ -174,13 +164,13 @@ description: 'meta description of the page'
 ```
 
 ```ts [example.ts]
-const home = await queryCollection('content').path('/').first()
+const home = await queryCollection("content").path("/").first();
 
-console.log(home.title)
+console.log(home.title);
 // => 'Title of the page'
-console.log(home.description)
+console.log(home.description);
 // => 'meta description of the page'
-console.log(home.body)
+console.log(home.body);
 // => AST object of the page content
 ```
 
@@ -190,20 +180,21 @@ console.log(home.body)
 <thead>
   <tr>
     <th>
-      
+
     </th>
-    
+
     <th>
-      
+
     </th>
-    
+
     <th>
-      
+
     </th>
-    
+
     <th>
-      
+
     </th>
+
   </tr>
 </thead>
 
@@ -212,108 +203,109 @@ console.log(home.body)
     <td>
       Key
     </td>
-    
+
     <td>
       Type
     </td>
-    
+
     <td>
       Default
     </td>
-    
+
     <td>
       Description
     </td>
+
   </tr>
-  
+
   <tr>
     <td>
       <code>
         title
       </code>
     </td>
-    
+
     <td>
       <code>
         string
       </code>
     </td>
-    
+
     <td>
       First <code>
         <h1>
       </code>
-      
+
        of the page
     </td>
-    
+
     <td>
       Title of the page, will also be injected in metas
     </td>
+
   </tr>
-  
+
   <tr>
     <td>
       <code>
         description
       </code>
     </td>
-    
+
     <td>
       <code>
         string
       </code>
     </td>
-    
+
     <td>
       First <code>
         <p>
       </code>
-      
+
        of the page
     </td>
-    
+
     <td>
       Description of the page, will be shown below the title and injected into the metas
     </td>
+
   </tr>
-  
+
   <tr>
     <td>
       <code>
         navigation
       </code>
     </td>
-    
+
     <td>
       <code>
         boolean
       </code>
     </td>
-    
+
     <td>
       <code>
         true
       </code>
     </td>
-    
+
     <td>
       Define if the page is included in <a href="/docs/utils/query-collection-navigation">
         <code>
           queryCollectionNavigation
         </code>
       </a>
-      
+
        return value.
     </td>
+
   </tr>
 </tbody>
 </table>
 
-
-
 Additional parameters that you have defined in your frontmatter block need to be defined in your schema (see the date parameter in the example at top of this page) to be able to use them for querying.
-
 
 ### Vue Components
 
@@ -332,7 +324,6 @@ Default slot content
 Components that are used in Markdown has to be marked as `global` in your Nuxt app if you don't use the `components/content/` directory, visit (https://nuxt.com/docs/guide/directory-structure/components) to learn more about it.
 
 </warning>
-
 
 #### Block Components
 
@@ -463,15 +454,15 @@ The **alert** component.
 
 ```vue [Alert.vue]
 <script setup>
-const props = defineProps({ type: { type: String } })
+const props = defineProps({ type: { type: String } });
 
 const alertClass = computed(() => {
   return {
-    warning: 'bg-orange-100 border-orange-200 dark:bg-orange-900 dark:border-orange-800',
-    info: 'bg-blue-100 border-blue-200 dark:bg-blue-900 dark:border-blue-800',
-    success: 'bg-green-100 border-green-200 dark:bg-green-900 dark:border-green-800',
-  }[props.type]
-})
+    warning: "bg-orange-100 border-orange-200 dark:bg-orange-900 dark:border-orange-800",
+    info: "bg-blue-100 border-blue-200 dark:bg-blue-900 dark:border-blue-800",
+    success: "bg-green-100 border-green-200 dark:bg-green-900 dark:border-green-800",
+  }[props.type];
+});
 </script>
 
 <template>
@@ -552,28 +543,26 @@ title: Nuxt Architecture.
 
 ```html [IconCard.vue]
 <script setup>
-defineProps({
-  title: {
-    type: String,
-    default: 'Default title'
-  },
-  description: {
-    type: String,
-    default: 'Default description'
-  },
-  icon: {
-    type: String,
-    default: 'IconMarkdown'
-  }
-})
+  defineProps({
+    title: {
+      type: String,
+      default: "Default title",
+    },
+    description: {
+      type: String,
+      default: "Default description",
+    },
+    icon: {
+      type: String,
+      default: "IconMarkdown",
+    },
+  });
 </script>
 
 <template>
   <div class="p-6 border bg-white dark:bg-black dark:border-gray-700 rounded">
     <component :is="icon" class="w-20 h-20" />
-    <h2 class="text-3xl font-semibold mb-2">
-      {{ title }}
-    </h2>
+    <h2 class="text-3xl font-semibold mb-2">{{ title }}</h2>
     <p>{{ description }}</p>
   </div>
 </template>
@@ -582,13 +571,9 @@ defineProps({
 <code-preview label="Preview" icon="i-lucide-eye">
 <example-icon-card description="Harness the full power of Nuxt and the Nuxt ecosystem." icon="i-simple-icons-nuxtdotjs" title="Nuxt Architecture.">
 
-
-
 </example-icon-card>
 </code-preview>
 </code-group>
-
-
 
 ### Attributes
 
@@ -610,7 +595,7 @@ World
 
 </span>
 
- !
+!
 
 </code-preview>
 </code-group>
@@ -631,7 +616,7 @@ Attributes work on:
 Attributes work on:
 
 - [link](#attributes), `code`,
-- *italic* and **bold** texts.
+- _italic_ and **bold** texts.
 
 </code-preview>
 </code-group>
@@ -657,21 +642,20 @@ customVariable: 'Custom Value'
 ```html [test.vue]
 <template>
   <div>
-    <ContentRenderer :value="data" :data="mdcVars"/>
+    <ContentRenderer :value="data" :data="mdcVars" />
     <button type="button" v-on:click="mdcVars.name = 'Hugo'">Change name</button>
   </div>
 </template>
 
 <script setup lang="ts">
-const { data } = await useAsyncData(() => queryCollection('content').path('/test').first());
-const mdcVars = ref({ name: 'Maxime'});
+  const { data } = await useAsyncData(() => queryCollection("content").path("/test").first());
+  const mdcVars = ref({ name: "Maxime" });
 </script>
 ```
 
 ```mdc [test.md]
 # Hello {{ $doc.name || 'World' }}
 ```
-
 
 ## Images
 

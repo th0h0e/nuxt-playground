@@ -1,37 +1,38 @@
 <script setup lang="ts">
-import { ref, useTemplateRef } from 'vue'
-import { Motion, useScroll, useSpring, useTransform } from 'motion-v'
-import { useDateFormat, useResizeObserver } from '@vueuse/core'
+import { useDateFormat, useResizeObserver } from "@vueuse/core";
+import { Motion, useScroll, useSpring, useTransform } from "motion-v";
+import { ref, useTemplateRef } from "vue";
 
-interface Project {
-  path: string
-  title: string
-  description: string
-  gallery?: string[]
-  date: string | Date
-}
+type Project = {
+  path: string;
+  title: string;
+  description: string;
+  gallery?: string[];
+  date: string | Date;
+};
 
-interface Props {
-  projects: Project[]
-}
+type Props = {
+  projects: Project[];
+};
 
-defineProps<Props>()
+defineProps<Props>();
 
-const formatDate = (date: string | Date) => useDateFormat(date, 'MMM. YYYY')
+const formatDate = (date: string | Date) => useDateFormat(date, "MMM. YYYY");
 
 // Measure header width to position beam through dot center
-const headerRef = useTemplateRef<HTMLElement>('header')
-const beamLeft = ref(7)
+const headerRef = useTemplateRef<HTMLElement>("header");
+const beamLeft = ref(7);
 
 useResizeObserver(headerRef, (entries) => {
-  const entry = entries[0]
-  if (entry) beamLeft.value = entry.contentRect.width - 8
-})
+  const entry = entries[0];
+  if (entry)
+    beamLeft.value = entry.contentRect.width - 8;
+});
 
 // Scroll-driven beam animation with spring physics
-const { scrollYProgress } = useScroll()
-const smoothProgress = useSpring(scrollYProgress, { damping: 30, restDelta: 0.001 })
-const beamHeight = useTransform(() => `${smoothProgress.get() * 100}%`)
+const { scrollYProgress } = useScroll();
+const smoothProgress = useSpring(scrollYProgress, { damping: 30, restDelta: 0.001 });
+const beamHeight = useTransform(() => `${smoothProgress.get() * 100}%`);
 </script>
 
 <template>

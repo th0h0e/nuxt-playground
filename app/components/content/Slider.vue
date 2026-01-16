@@ -8,29 +8,29 @@
  * <Slider :testimonials="testimonials" />
  */
 
-interface Author {
-  name: string
-  description?: string
+type Author = {
+  name: string;
+  description?: string;
   avatar?: {
-    src: string
-    alt: string
-  }
-}
+    src: string;
+    alt: string;
+  };
+};
 
-interface Testimonial {
-  quote: string
-  author: Author
-}
+type Testimonial = {
+  quote: string;
+  author: Author;
+};
 
 defineProps<{
-  testimonials: Testimonial[]
-}>()
+  testimonials: Testimonial[];
+}>();
 </script>
 
 <template>
   <UPageSection
     :ui="{
-      container: 'px-0 !pt-0'
+      container: 'px-0 !pt-0',
     }"
   >
     <UCarousel
@@ -40,7 +40,7 @@ defineProps<{
       loop
       dots
       :ui="{
-        viewport: 'bg-elevated/50'
+        viewport: 'bg-elevated/50',
       }"
     >
       <UPageCTA
@@ -49,7 +49,7 @@ defineProps<{
         class="rounded-none"
         :ui="{
           container: 'sm:py-12 lg:py-12 sm:gap-8',
-          description: '!text-base text-balance before:content-[open-quote] before:text-5xl lg:before:text-7xl before:inline-block before:text-dimmed before:absolute before:-ml-6 lg:before:-ml-10 before:-mt-2 lg:before:-mt-4 after:content-[close-quote] after:text-5xl lg:after:text-7xl after:inline-block after:text-dimmed after:absolute after:mt-1 lg:after:mt-0 after:ml-1 lg:after:ml-2'
+          description: '!text-base text-balance before:content-[open-quote] before:text-5xl lg:before:text-7xl before:inline-block before:text-dimmed before:absolute before:-ml-6 lg:before:-ml-10 before:-mt-2 lg:before:-mt-4 after:content-[close-quote] after:text-5xl lg:after:text-7xl after:inline-block after:text-dimmed after:absolute after:mt-1 lg:after:mt-0 after:ml-1 lg:after:ml-2',
         }"
       >
         <UUser

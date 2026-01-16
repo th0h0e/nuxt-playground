@@ -9,12 +9,12 @@
  */
 
 const props = defineProps<{
-  author: string
-  title: string
-  subtitle: string
-  postscript: string[]
-  editor: string
-}>()
+  author: string;
+  title: string;
+  subtitle: string;
+  postscript: string[];
+  editor: string;
+}>();
 </script>
 
 <template>

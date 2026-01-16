@@ -1,23 +1,23 @@
 <script setup lang="ts">
 defineProps<{
   posts?: Array<{
-    path: string
-    title: string
-    description?: string
-    date: string
+    path: string;
+    title: string;
+    description?: string;
+    date: string;
     image?: {
-      src: string
-      alt: string
-    }
-  }>
-}>()
+      src: string;
+      alt: string;
+    };
+  }>;
+}>();
 
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  })
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }
 </script>
 

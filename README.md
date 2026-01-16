@@ -17,7 +17,6 @@
 > - ✅ Media management and uploads
 > - ✅ GitHub authentication and publishing workflow
 >
->
 > Once all file operations and GitHub publishing workflows are tested and stable, we'll release **Phase 2 (Beta)** with the full visual editor for Markdown, Vue components, and medias...
 >
 > Read the [announcement blog post](https://content.nuxt.com/blog/studio-module-alpha) for more details.
@@ -39,16 +38,19 @@ Originally offered as a standalone premium platform at https://nuxt.studio, Stud
 - 🚀 **Development Mode** - Directly edit your content files and media files in your local filesystem using the module interface
 
 **Coming in Beta:**
+
 - 🎨 **Visual Editor** - Visual editor for content management, from text edition to media management - all without touching code
 - 🔐 **Google OAuth Authentication** - Secure OAuth-based login with Google
 
 **Future Features:**
+
 - 📂 **Collections view** - View and manage your content collections in a unified interface
 - 🖼️ **Media optimization** - Optimize your media files in the editor
 - 🤖 **AI Content Assistant** — Receive smart, AI-powered suggestions to enhance your content creation flow
 - 💡 **Community-driven Features** — Have an idea? [Share your suggestions](https://github.com/nuxt-content/studio/discussions) to shape the future of Nuxt Studio
 
 ### Resources
+
 - [📖 Documentation](https://content.nuxt.com/docs/studio/setup)
 - [🎮 Live Demo](https://docus.dev/admin)
 
@@ -69,20 +71,20 @@ Add it to your `nuxt.config` and configure your repository.
 ```ts
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/content',
-    'nuxt-studio'
+    "@nuxt/content",
+    "nuxt-studio"
   ],
   studio: {
     // Your configuration
     repository: {
-      provider: 'github', // default: only GitHub supported currently
-      owner: 'your-username', // your GitHub owner
-      repo: 'your-repo', // your GitHub repository name
-      branch: 'main',
-      rootDir: '' // optional: location of your content app
+      provider: "github", // default: only GitHub supported currently
+      owner: "your-username", // your GitHub owner
+      repo: "your-repo", // your GitHub repository name
+      branch: "main",
+      rootDir: "" // optional: location of your content app
     }
   }
-})
+});
 ```
 
 ### 2. Create a GitHub OAuth App
@@ -113,24 +115,25 @@ Configure Nuxt Studio in your `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['nuxt-studio'],
+  modules: ["nuxt-studio"],
   studio: {
     // Studio admin login route
-    route: '/_studio', // default
+    route: "/_studio", // default
 
     // Git repository configuration (required)
     repository: {
-      provider: 'github', // only GitHub is supported currently (default)
-      owner: 'your-username', // your GitHub owner
-      repo: 'your-repo', // your GitHub repository name
-      branch: 'main', // your GitHub branch
-      rootDir: '' // optional: root directory for
+      provider: "github", // only GitHub is supported currently (default)
+      owner: "your-username", // your GitHub owner
+      repo: "your-repo", // your GitHub repository name
+      branch: "main", // your GitHub branch
+      rootDir: "" // optional: root directory for
     },
   }
-})
+});
 ```
 
 ## Contributing
+
 You must clone the repository and create a local GitHub OAuth App (pointing to `http://localhost:3000` as callback URL).
 
 Set your GitHub OAuth credentials in the `.env` file.
@@ -184,6 +187,7 @@ pnpm lint
 ## Roadmap
 
 ### ✅ Phase 1 - Alpha (Current)
+
 - [x] Monaco code editor
 - [x] File operations (create, edit, delete, rename)
 - [x] Media management
@@ -193,6 +197,7 @@ pnpm lint
 - [x] Real-time preview
 
 ### 🚧 Phase 2 - Beta (In Development)
+
 - [ ] Google OAuth authentication
 - [ ] Visual editor
 - [ ] Frontmatter edition as form

@@ -17,30 +17,30 @@
  ::
 */
 
-interface Paragraph {
-  text: string
-  italic: boolean
-}
+type Paragraph = {
+  text: string;
+  italic: boolean;
+};
 
-interface LetterData {
-  headerText?: string
-  title?: string
-  subtitle?: string
-  paragraphs?: Paragraph[]
-}
+type LetterData = {
+  headerText?: string;
+  title?: string;
+  subtitle?: string;
+  paragraphs?: Paragraph[];
+};
 
 const props = defineProps<{
-  page?: { letter?: LetterData }
-  headerText?: string
-  title?: string
-  subtitle?: string
-  paragraphs?: Paragraph[]
-}>()
+  page?: { letter?: LetterData };
+  headerText?: string;
+  title?: string;
+  subtitle?: string;
+  paragraphs?: Paragraph[];
+}>();
 
-const header = computed(() => props.page?.letter?.headerText || props.headerText)
-const title = computed(() => props.page?.letter?.title || props.title)
-const subtitle = computed(() => props.page?.letter?.subtitle || props.subtitle)
-const paragraphs = computed(() => props.page?.letter?.paragraphs || props.paragraphs)
+const header = computed(() => props.page?.letter?.headerText || props.headerText);
+const title = computed(() => props.page?.letter?.title || props.title);
+const subtitle = computed(() => props.page?.letter?.subtitle || props.subtitle);
+const paragraphs = computed(() => props.page?.letter?.paragraphs || props.paragraphs);
 </script>
 
 <template>
@@ -52,7 +52,7 @@ const paragraphs = computed(() => props.page?.letter?.paragraphs || props.paragr
         root: 'divide-y-0',
         header: 'bg-elevated/30 px-6 sm:px-12 lg:px-18 pt-12 pb-4',
         body: 'bg-elevated/30 px-6 sm:px-12 lg:px-18 py-0',
-        footer: 'bg-elevated/30 px-6 sm:px-12 lg:px-18 pt-6 sm:pt-0 pb-20 sm:pb-32'
+        footer: 'bg-elevated/30 px-6 sm:px-12 lg:px-18 pt-6 sm:pt-0 pb-20 sm:pb-32',
       }"
     >
       <template #header>
@@ -73,7 +73,8 @@ const paragraphs = computed(() => props.page?.letter?.paragraphs || props.paragr
           <p
             v-for="(paragraph, index) in paragraphs"
             :key="index"
-            :class="['text-sm sm:text-base text-justify', paragraph.italic && 'px-6 italic']"
+            class="text-sm sm:text-base text-justify"
+            :class="[paragraph.italic && 'px-6 italic']"
           >
             {{ paragraph.text }}
           </p>

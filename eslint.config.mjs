@@ -20,10 +20,10 @@ export default withNuxt(antfu({
   rules: {
     "vue/max-attributes-per-line": ["error", {
       singleline: {
-        max: 2,
+        max: 3,
       },
       multiline: {
-        max: 1, 
+        max: 1,
       },
     }],
     "ts/no-redeclare": "off",
@@ -34,8 +34,18 @@ export default withNuxt(antfu({
     "node/no-process-env": ["error"],
     "perfectionist/sort-imports": "error",
     "unicorn/filename-case": ["error", {
-      case: "kebabCase",
-      ignore: ["README.md"],
+      cases: {
+        pascalCase: true,
+        kebabCase: true,
+        camelCase: true,
+      },
+      ignore: [
+        "^\\.",
+        "\\.config\\.",
+        "\\.json$",
+        "README.md",
+        "CLAUDE.md",
+      ],
     }],
   },
 }));

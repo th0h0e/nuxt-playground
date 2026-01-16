@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    id?: string
-    class?: string
+    id?: string;
+    class?: string;
   }>(),
   {
     id: undefined,
-    class: undefined
-  }
-)
+    class: undefined,
+  },
+);
 </script>
 
 <template>

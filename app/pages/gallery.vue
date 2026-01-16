@@ -1,26 +1,26 @@
 <script lang="ts" setup>
 definePageMeta({
-  layout: 'no-columns'
-})
+  layout: "no-columns",
+});
 
-const { data: gallery } = await useAsyncData('gallery', () => {
-  return queryCollection('gallery').first()
-})
+const { data: gallery } = await useAsyncData("gallery", () => {
+  return queryCollection("gallery").first();
+});
 
 if (!gallery.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Gallery not found',
-    fatal: true
-  })
+    statusMessage: "Gallery not found",
+    fatal: true,
+  });
 }
 
 useSeoMeta({
   title: gallery.value?.title,
   ogTitle: gallery.value?.title,
   description: gallery.value?.description,
-  ogDescription: gallery.value?.description
-})
+  ogDescription: gallery.value?.description,
+});
 </script>
 
 <template>

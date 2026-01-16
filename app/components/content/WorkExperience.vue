@@ -8,23 +8,23 @@
  * <WorkExperience :title="title" :items="experiences" />
  */
 
-interface Company {
-  name: string
-  url: string
-  color: string
-  logo: string
-}
+type Company = {
+  name: string;
+  url: string;
+  color: string;
+  logo: string;
+};
 
-interface ExperienceItem {
-  date: string
-  position: string
-  company: Company
-}
+type ExperienceItem = {
+  date: string;
+  position: string;
+  company: Company;
+};
 
 defineProps<{
-  title: string
-  items: ExperienceItem[]
-}>()
+  title: string;
+  items: ExperienceItem[];
+}>();
 </script>
 
 <template>
@@ -33,7 +33,7 @@ defineProps<{
     :ui="{
       container: '!p-0 gap-4 sm:gap-4',
       title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-      description: 'mt-2'
+      description: 'mt-2',
     }"
   >
     <template #description>

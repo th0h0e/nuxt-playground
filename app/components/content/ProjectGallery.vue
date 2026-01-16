@@ -15,13 +15,13 @@
  * ::
  */
 
-import { ref } from 'vue'
+import { ref } from "vue";
 
 defineProps<{
-  images: string[]
-}>()
+  images: string[];
+}>();
 
-const currentIndex = ref(0)
+const currentIndex = ref(0);
 </script>
 
 <template>
@@ -56,7 +56,7 @@ const currentIndex = ref(0)
         :class="{
           'ring-1 ring-primary': index === currentIndex,
           'opacity-50 hover:opacity-75': index !== currentIndex,
-          'hover:opacity-95': index === currentIndex
+          'hover:opacity-95': index === currentIndex,
         }"
         @click="currentIndex = index"
       >

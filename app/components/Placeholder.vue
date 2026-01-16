@@ -1,3 +1,26 @@
+<script lang="ts">
+import type { PrimitiveProps } from "reka-ui";
+import type { HTMLAttributes } from "vue";
+import { Primitive } from "reka-ui";
+import { tv } from "tailwind-variants";
+
+export const placeHolderStyles = tv({
+  slots: {
+    wrapper: "relative flex items-center justify-center overflow-hidden rounded-md border border-primary border-dashed px-4 opacity-75",
+    svg: "absolute inset-0 size-full stroke-primary/10",
+  },
+});
+</script>
+
+<script lang="ts" setup>
+const props = defineProps<
+  PrimitiveProps & {
+
+    class?: HTMLAttributes["class"];
+  }
+>();
+</script>
+
 <template>
   <Primitive
     :as
@@ -31,26 +54,3 @@
     <slot />
   </Primitive>
 </template>
-
-<script lang="ts">
-import { Primitive } from 'reka-ui'
-import type { PrimitiveProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
-import { tv } from 'tailwind-variants'
-
-export const placeHolderStyles = tv({
-  slots: {
-    wrapper: 'relative flex items-center justify-center overflow-hidden rounded-md border border-primary border-dashed px-4 opacity-75',
-    svg: 'absolute inset-0 size-full stroke-primary/10'
-  }
-})
-</script>
-
-<script lang="ts" setup>
-const props = defineProps<
-  PrimitiveProps & {
-
-    class?: HTMLAttributes['class']
-  }
->()
-</script>

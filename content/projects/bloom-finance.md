@@ -19,7 +19,6 @@ gallery:
   - /tumblr_5d36f28f4d2d7f414da50f8e53179f05_ad7b99ee_1280.jpg
 ---
 
-
 ## Project Overview
 
 Bloom Finance approached me to redesign their personal finance platform, which was experiencing high user drop-off rates during onboarding and low engagement with core features. The challenge was to create an intuitive interface that made complex financial data accessible and actionable for everyday users.

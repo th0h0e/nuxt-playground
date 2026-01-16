@@ -1,216 +1,216 @@
 export default defineAppConfig({
   meta: {
-    id: 'soft_spoken_studio',
-    name: 'Soft Spoken Studio',
-    description: 'Copywriting and video production agency specializing in compelling brand storytelling.',
+    id: "soft_spoken_studio",
+    name: "Soft Spoken Studio",
+    description: "Copywriting and video production agency specializing in compelling brand storytelling.",
     author: {
-      name: 'Thomas Hibbert',
-      url: 'https://softspokenstudio.com',
-      image: '/sss.png',
-      email: 'info@softspokenstudio.com',
-      description: 'Founder and Creative Director at Soft Spoken Studio',
-      jobTitle: 'Creative Director'
+      name: "Thomas Hibbert",
+      url: "https://softspokenstudio.com",
+      image: "/sss.png",
+      email: "info@softspokenstudio.com",
+      description: "Founder and Creative Director at Soft Spoken Studio",
+      jobTitle: "Creative Director",
     },
-    url: 'https://softspokenstudio.com',
-    icon: '/favicon.ico',
-    contactEmail: 'info@softspokenstudio.com',
-    bookingLink: 'https://cal.com/placeholder',
+    url: "https://softspokenstudio.com",
+    icon: "/favicon.ico",
+    contactEmail: "info@softspokenstudio.com",
+    bookingLink: "https://cal.com/placeholder",
     social: {
       instagram: {
-        url: 'https://instagram.com/softspokenstudio',
-        icon: 'i-simple-icons-instagram',
-        label: 'Soft Spoken Studio on Instagram'
-      }
-    }
+        url: "https://instagram.com/softspokenstudio",
+        icon: "i-simple-icons-instagram",
+        label: "Soft Spoken Studio on Instagram",
+      },
+    },
   },
   global: {
     picture: {
-      dark: 'sss.png',
-      light: 'sss-black.png',
-      alt: 'Soft Spoken Studio'
+      dark: "sss.png",
+      light: "sss-black.png",
+      alt: "Soft Spoken Studio",
     },
-    meetingLink: 'https://cal.com/placeholder',
-    email: 'info@softspokenstudio.com',
-    available: true
+    meetingLink: "https://cal.com/placeholder",
+    email: "info@softspokenstudio.com",
+    available: true,
   },
   ui: {
     icons: {
-      search: 'i-feather-search',
-      close: 'i-feather-x',
-      check: 'i-feather-check',
-      loading: 'i-feather-loader',
-      chevronDown: 'i-feather-chevron-down',
-      chevronRight: 'i-feather-chevron-right',
-      chevronLeft: 'i-feather-chevron-left',
-      arrowLeft: 'i-feather-arrow-left',
-      arrowRight: 'i-feather-arrow-right',
-      external: 'i-feather-external-link',
-      file: 'i-feather-type',
-      hash: 'i-feather-layout',
-      folder: 'i-feather-folder',
-      sun: 'i-feather-sun',
-      moon: 'i-feather-moon',
-      monitor: 'i-feather-monitor'
+      search: "i-feather-search",
+      close: "i-feather-x",
+      check: "i-feather-check",
+      loading: "i-feather-loader",
+      chevronDown: "i-feather-chevron-down",
+      chevronRight: "i-feather-chevron-right",
+      chevronLeft: "i-feather-chevron-left",
+      arrowLeft: "i-feather-arrow-left",
+      arrowRight: "i-feather-arrow-right",
+      external: "i-feather-external-link",
+      file: "i-feather-type",
+      hash: "i-feather-layout",
+      folder: "i-feather-folder",
+      sun: "i-feather-sun",
+      moon: "i-feather-moon",
+      monitor: "i-feather-monitor",
     },
     colors: {
-      primary: 'zinc',
-      secondary: 'slate',
-      success: 'green',
-      error: 'red',
-      info: 'blue',
-      warning: 'red',
-      neutral: 'neutral'
+      primary: "zinc",
+      secondary: "slate",
+      success: "green",
+      error: "red",
+      info: "blue",
+      warning: "red",
+      neutral: "neutral",
     },
     pageBody: {
-      base: 'pb-24 space-y-12 px-4'
+      base: "pb-24 space-y-12 px-4",
     },
     pageHeader: {
       slots: {
-        root: 'relative border-none pt-12 pb-14 sm:pt-12 sm:pb-24 lg:pt-18 lg:pb-20 px-4',
-        title: 'mx-0 text-left max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl',
-        description: 'mx-0 text-left text-sm text-muted max-w-2xl',
-        links: 'justify-start'
-      }
+        root: "relative border-none pt-12 pb-14 sm:pt-12 sm:pb-24 lg:pt-18 lg:pb-20 px-4",
+        title: "mx-0 text-left max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl",
+        description: "mx-0 text-left text-sm text-muted max-w-2xl",
+        links: "justify-start",
+      },
     },
     pageHero: {
       slots: {
-        container: 'py-18 sm:py-24 lg:py-32',
-        title: 'mx-auto max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl text-default',
-        description: 'mt-2 text-md mx-auto max-w-2xl text-pretty sm:text-md text-muted'
-      }
+        container: "py-18 sm:py-24 lg:py-32",
+        title: "mx-auto max-w-xl text-pretty text-3xl sm:text-4xl lg:text-5xl text-default",
+        description: "mt-2 text-md mx-auto max-w-2xl text-pretty sm:text-md text-muted",
+      },
     },
     pageSection: {
       slots: {
-        container: 'pt-0 pb-24 sm:pb-32 lg:pb-48 px-4'
-      }
+        container: "pt-0 pb-24 sm:pb-32 lg:pb-48 px-4",
+      },
     },
     avatar: {
       variants: {
         size: {
           md: {
-            root: 'size-8 text-sm'
-          }
-        }
-      }
+            root: "size-8 text-sm",
+          },
+        },
+      },
     },
     prose: {
       callout: {
         slots: {
           base: [
-            'group relative block px-4 py-3 rounded-md text-sm/6 my-5 last:mb-0',
-            '[&_code]:text-xs/5 [&_code]:bg-default [&_pre]:bg-default',
-            '[&>div]:my-2.5 [&_ul]:my-2.5 [&_ol]:my-2.5 [&>*]:last:!mb-0',
-            '[&_ul]:ps-4.5 [&_ol]:ps-4.5 [&_li]:my-0',
-            'transition-colors'
+            "group relative block px-4 py-3 rounded-md text-sm/6 my-5 last:mb-0",
+            "[&_code]:text-xs/5 [&_code]:bg-default [&_pre]:bg-default",
+            "[&>div]:my-2.5 [&_ul]:my-2.5 [&_ol]:my-2.5 [&>*]:last:!mb-0",
+            "[&_ul]:ps-4.5 [&_ol]:ps-4.5 [&_li]:my-0",
+            "transition-colors",
           ],
           icon: [
-            'size-4 shrink-0 align-sub me-1.5 inline-block',
-            'transition-colors'
-          ]
+            "size-4 shrink-0 align-sub me-1.5 inline-block",
+            "transition-colors",
+          ],
         },
         variants: {
           color: {
             primary: {
-              base: 'border border-primary/25 bg-primary/10 text-primary-600 dark:text-primary-300',
-              icon: 'text-primary'
+              base: "border border-primary/25 bg-primary/10 text-primary-600 dark:text-primary-300",
+              icon: "text-primary",
             },
             success: {
-              base: 'border border-success/25 bg-success/10 text-success-600 dark:text-success-300',
-              icon: 'text-success'
+              base: "border border-success/25 bg-success/10 text-success-600 dark:text-success-300",
+              icon: "text-success",
             },
             info: {
-              base: 'border border-info/25 bg-info/10 text-info-600 dark:text-info-300',
-              icon: 'text-info'
+              base: "border border-info/25 bg-info/10 text-info-600 dark:text-info-300",
+              icon: "text-info",
             },
             warning: {
-              base: 'border border-warning/25 bg-warning/10 text-warning-600 dark:text-warning-300',
-              icon: 'text-warning'
+              base: "border border-warning/25 bg-warning/10 text-warning-600 dark:text-warning-300",
+              icon: "text-warning",
             },
             error: {
-              base: 'border border-error/25 bg-error/10 text-error-600 dark:text-error-300',
-              icon: 'text-error'
+              base: "border border-error/25 bg-error/10 text-error-600 dark:text-error-300",
+              icon: "text-error",
             },
             neutral: {
-              base: 'border border-muted bg-muted text-default',
-              icon: 'text-highlighted'
-            }
-          }
+              base: "border border-muted bg-muted text-default",
+              icon: "text-highlighted",
+            },
+          },
         },
         defaultVariants: {
-          color: 'neutral'
-        }
-      }
+          color: "neutral",
+        },
+      },
     },
     card: {
       slots: {
-        header: 'p-4 sm:px-6',
-        body: 'p-4 sm:p-6',
-        footer: 'p-4 sm:px-6'
+        header: "p-4 sm:px-6",
+        body: "p-4 sm:p-6",
+        footer: "p-4 sm:px-6",
       },
       variants: {
         variant: {
           solid: {
-            root: 'text-inverted divide-y divide-default',
-            header: 'bg-inverted',
-            body: 'bg-inverted',
-            footer: 'bg-inverted'
+            root: "text-inverted divide-y divide-default",
+            header: "bg-inverted",
+            body: "bg-inverted",
+            footer: "bg-inverted",
           },
           outline: {
-            root: 'ring ring-default divide-y divide-default',
-            header: 'bg-default',
-            body: 'bg-default',
-            footer: 'bg-default'
+            root: "ring ring-default divide-y divide-default",
+            header: "bg-default",
+            body: "bg-default",
+            footer: "bg-default",
           },
           soft: {
-            root: 'divide-y divide-default',
-            header: 'bg-elevated/50',
-            body: 'bg-elevated/50',
-            footer: 'bg-elevated/50'
+            root: "divide-y divide-default",
+            header: "bg-elevated/50",
+            body: "bg-elevated/50",
+            footer: "bg-elevated/50",
           },
           subtle: {
-            root: 'ring ring-default divide-y divide-default',
-            header: 'bg-elevated/10',
-            body: 'bg-elevated/10',
-            footer: 'bg-elevated/50'
-          }
-        }
+            root: "ring ring-default divide-y divide-default",
+            header: "bg-elevated/10",
+            body: "bg-elevated/10",
+            footer: "bg-elevated/50",
+          },
+        },
       },
       defaultVariants: {
-        variant: 'outline'
-      }
+        variant: "outline",
+      },
     },
     footer: {
       slots: {
-        top: 'p-0',
-        bottom: 'pt-0 pb-8 lg:pb-12'
-      }
+        top: "p-0",
+        bottom: "pt-0 pb-8 lg:pb-12",
+      },
     },
     changelogVersion: {
       slots: {
-        container: 'flex flex-col max-w-none ps-4 lg:ps-0 lg:ms-48 pe-4 sm:pe-4 lg:pe-10 pb-18',
-        indicator: 'absolute start-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0'
-      }
+        container: "flex flex-col max-w-none ps-4 lg:ps-0 lg:ms-48 pe-4 sm:pe-4 lg:pe-10 pb-18",
+        indicator: "absolute start-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0",
+      },
     },
     pageColumns: {
-      base: 'relative column-1 md:columns-2 lg:columns-3 gap-4 space-y-8 *:break-inside-avoid-column *:will-change-transform'
+      base: "relative column-1 md:columns-2 lg:columns-3 gap-4 space-y-8 *:break-inside-avoid-column *:will-change-transform",
     },
     contentSearch: {
       slots: {
-        root: 'bg-white dark:bg-neutral-900',
-        itemLeadingIcon: 'size-4'
-      }
-    }
+        root: "bg-white dark:bg-neutral-900",
+        itemLeadingIcon: "size-4",
+      },
+    },
   },
   footer: {
     credits: `Built by Kontext • © ${new Date().getFullYear()}`,
-    creditsLink: 'https://kontext.site',
+    creditsLink: "https://kontext.site",
     links: [
       {
-        'to': 'https://instagram.com/softspokenstudio',
-        'icon': 'i-simple-icons-instagram',
-        'aria-label': 'Soft Spoken Studio on Instagram',
-        'target': '_blank'
-      }
-    ]
-  }
-})
+        "to": "https://instagram.com/softspokenstudio",
+        "icon": "i-simple-icons-instagram",
+        "aria-label": "Soft Spoken Studio on Instagram",
+        "target": "_blank",
+      },
+    ],
+  },
+});

@@ -21,26 +21,26 @@
 */
 
 <script setup lang="ts">
-import { stagger } from 'motion-v'
-import type { MotionProps } from 'motion-v'
-
-const childVariant: MotionProps['variants'] = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }
-}
-
-interface ServiceCard {
-  image: string
-  badge?: string
-  title: string
-  icon?: string
-  description: string
-  link?: string
-}
+import type { MotionProps } from "motion-v";
+import { stagger } from "motion-v";
 
 defineProps<{
-  cards: ServiceCard[]
-}>()
+  cards: ServiceCard[];
+}>();
+
+const childVariant: MotionProps["variants"] = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
+
+type ServiceCard = {
+  image: string;
+  badge?: string;
+  title: string;
+  icon?: string;
+  description: string;
+  link?: string;
+};
 </script>
 
 <template>
@@ -58,9 +58,9 @@ defineProps<{
             opacity: 1,
             transition: {
               when: 'beforeChildren',
-              delayChildren: stagger(0.12)
-            }
-          }
+              delayChildren: stagger(0.12),
+            },
+          },
         }"
         class="w-full sm:w-1/2"
       >
@@ -75,7 +75,7 @@ defineProps<{
               as-child
               :variants="{
                 initial: { opacity: 0, scale: 1.1 },
-                animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut' } }
+                animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut' } },
               }"
               class="block"
             >
@@ -103,8 +103,8 @@ defineProps<{
                 animate: {
                   opacity: 1,
                   scale: 1,
-                  transition: { type: 'spring', stiffness: 300, damping: 20 }
-                }
+                  transition: { type: 'spring', stiffness: 300, damping: 20 },
+                },
               }"
             >
               <UBadge
